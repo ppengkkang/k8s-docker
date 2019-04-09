@@ -17,6 +17,11 @@ RUN /usr/local/bin/install-plugins.sh $(cat /usr/share/jenkins/plugins.txt) && \
     echo lts > /usr/share/jenkins/ref/jenkins.install.UpgradeWizard.state && \
     echo lts > /usr/share/jenkins/ref/jenkins.install.InstallUtil.lastExecVersion
 
+#RUN sudo tar -xvzf apache-maven-3.6.0-bin.tar.gz
+COPY apache-maven-3.6.0 /var/jenkins_home/
+RUN echo "export MAVEN_HOME=/var/jenkins_home/apache-maven-3.6.0" >> /var/jenkins_home/.bashrc
+RUN echo "export PATH=/var/jenkins_home/apache-maven-3.6.0/bin:\$PATH" >> /var/jenkins_home/.bashrc
+
 # Install Docker
 RUN apt-get -qq update && \
     apt-get -qq -y install curl && \
