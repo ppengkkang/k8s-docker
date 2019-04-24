@@ -39,10 +39,10 @@ spec:
             memory: "100Mi"
         ports:
             - name: redis
-              containerPort: 6380
+              containerPort: 6379
               protocol: "TCP"
             - name: cluster
-              containerPort: 16380
+              containerPort: 16379
               protocol: "TCP"
         volumeMounts:
           - name: "redis-conf"

@@ -8,8 +8,8 @@ spec:
   ports:
   - name: redis-port
     protocol: "TCP"
-    port: 6380
-    targetPort: 6380
+    port: 6379
+    targetPort: 6379
   selector:
-    #app: redis
+    app: redis
     appCluster: redis-cluster
