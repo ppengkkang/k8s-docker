@@ -10,5 +10,5 @@ spec:
     port: 6380
   clusterIP: None
   selector:
-    #app: redis
+    app: redis
     appCluster: redis-cluster
