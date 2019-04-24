@@ -47,8 +47,10 @@ spec:
         volumeMounts:
           - name: "redis-conf"
             mountPath: "/etc"
+            readOnly: false
           - name: "redis-data"
             mountPath: "/data"
+            readOnly: false
       volumes:
       - name: "redis-conf"
         configMap:
