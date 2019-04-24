@@ -1,7 +1,7 @@
 apiVersion: apps/v1beta1
 kind: StatefulSet
 metadata:
-  name: redis-cluster-app
+  name: redis-app
 spec:
   serviceName: "redis-service"
   replicas: 6
@@ -48,7 +48,7 @@ spec:
           - name: "redis-conf"
             mountPath: "/etc"
             readOnly: false
-          - name: "redis-cluster-volume"
+          - name: "redis-volume"
             mountPath: "/data"
             readOnly: false
       volumes:
@@ -60,7 +60,7 @@ spec:
               path: "redis.conf"
   volumeClaimTemplates:
   - metadata:
-      name: redis-cluster-volume
+      name: redis-volume
     spec:
       accessModes: [ "ReadWriteMany" ]
       resources:
