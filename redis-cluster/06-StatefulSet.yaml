@@ -26,7 +26,7 @@ spec:
               topologyKey: kubernetes.io/hostname
       containers:
       - name: redis
-        image: "172.26.75.11:8083/redis:4.0.13"
+        image: "redis:4.0.13"
         command:
           - "redis-server"
         args:
@@ -49,8 +49,6 @@ spec:
             mountPath: "/etc/redis"
           - name: "redis-data"
             mountPath: "/var/lib/redis"
-      imagePullSecrets:
-      - name: nexus-registry-secret
       volumes:
       - name: "redis-conf"
         configMap:
@@ -65,4 +63,4 @@ spec:
       accessModes: [ "ReadWriteMany" ]
       resources:
         requests:
-          storage: 2000M
+          storage: 200M
