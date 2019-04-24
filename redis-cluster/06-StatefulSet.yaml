@@ -8,7 +8,7 @@ spec:
   template:
     metadata:
       labels:
-        app: redis-cluster
+        app: redis
         appCluster: redis-cluster
     spec:
       terminationGracePeriodSeconds: 20
@@ -22,10 +22,10 @@ spec:
                 - key: app
                   operator: In
                   values:
-                  - redis-cluster
+                  - redis
               topologyKey: kubernetes.io/hostname
       containers:
-      - name: redis-cluster
+      - name: redis
         image: "redis"
         command:
           - "redis-server"
