@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+	environment {
+	    GIT_REVISION = "${sh(returnStdout: true, script: 'git rev-parse --short HEAD')}"
+	    BUILD_TIMESTAMP = "$BUILD_TIMESTAMP"
+
+	}
+    stages {
+        stage('Pull code from bitbucket repo') {
+            steps {
+                git branch: 'dev_cicd_20190402', changelog: false, credentialsId: '22737075-fb72-4935-8e22-f4bd2f38d6e7', poll: false, url: 'https://tompengyong@bitbucket.org/AIAVitalityHoldings/sharedworkout.git'
+            }
+        }
+        stage('G') {
+            steps {
+				echo env.GIT_REVISION
+				echo "tag: ${BUILD_TIMESTAMP}-${GIT_REVISION}"
+            }
+        }
+    }
+}
