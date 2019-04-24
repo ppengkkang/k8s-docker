@@ -30,7 +30,7 @@ spec:
         command:
           - "redis-server"
         args:
-          - "/etc/redis/redis.conf"
+          - "/etc/redis.conf"
           - "--protected-mode"
           - "no"
         resources:
@@ -46,9 +46,9 @@ spec:
               protocol: "TCP"
         volumeMounts:
           - name: "redis-conf"
-            mountPath: "/etc/redis"
+            mountPath: "/etc"
           - name: "redis-data"
-            mountPath: "/var/lib/redis"
+            mountPath: "/data"
       volumes:
       - name: "redis-conf"
         configMap:
