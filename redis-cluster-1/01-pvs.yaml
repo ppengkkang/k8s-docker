@@ -10,7 +10,6 @@ spec:
   nfs:
     server: 192.168.99.101
     path: "/usr/local/k8s/redis/pv1"
-  persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -24,7 +23,6 @@ spec:
   nfs:
     server: 192.168.99.101
     path: "/usr/local/k8s/redis/pv2"
-  persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -38,7 +36,6 @@ spec:
   nfs:
     server: 192.168.99.101
     path: "/usr/local/k8s/redis/pv3"
-  persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -52,7 +49,6 @@ spec:
   nfs:
     server: 192.168.99.101
     path: "/usr/local/k8s/redis/pv4"
-  persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -66,7 +62,6 @@ spec:
   nfs:
     server: 192.168.99.101
     path: "/usr/local/k8s/redis/pv5"
-  persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -80,5 +75,4 @@ spec:
   nfs:
     server: 192.168.99.101
     path: "/usr/local/k8s/redis/pv6"
-  persistentVolumeReclaimPolicy: Retain
   ---
