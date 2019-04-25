@@ -13,5 +13,4 @@ spec:
     nodePort: 31379
     targetPort: 6379
   selector:
-    app: redis
-    appCluster: redis-cluster
+    app: redis-cluster
