@@ -1,0 +1,90 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-pv1
+spec:
+  capacity:
+    storage: 300M
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    server: 192.168.99.101
+    path: "/usr/local/k8s/redis/pv1"
+  persistentVolumeReclaimPolicy: Retain
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-pv2
+spec:
+  capacity:
+    storage: 300M
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    server: 192.168.99.101
+    path: "/usr/local/k8s/redis/pv2"
+  persistentVolumeReclaimPolicy: Retain
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-pv3
+spec:
+  capacity:
+    storage: 300M
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    server: 192.168.99.101
+    path: "/usr/local/k8s/redis/pv3"
+  persistentVolumeReclaimPolicy: Retain
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-pv4
+spec:
+  capacity:
+    storage: 300M
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    server: 192.168.99.101
+    path: "/usr/local/k8s/redis/pv4"
+  persistentVolumeReclaimPolicy: Retain
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-pv5
+spec:
+  capacity:
+    storage: 300M
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    server: 192.168.99.101
+    path: "/usr/local/k8s/redis/pv5"
+  persistentVolumeReclaimPolicy: Retain
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-pv6
+spec:
+  capacity:
+    storage: 300M
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    server: 192.168.99.101
+    path: "/usr/local/k8s/redis/pv6"
+  persistentVolumeReclaimPolicy: Retain
+
+  ---
