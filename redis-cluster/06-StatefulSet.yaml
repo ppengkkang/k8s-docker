@@ -33,17 +33,13 @@ spec:
     spec:
       containers:
       - name: redis
-        image: "redis"
-        command:
-          - "redis-server"
-        args:
-          - "/etc/redis.conf"
-          - "--protected-mode"
-          - "no"
-        resources:
-          requests:
-            cpu: "100m"
-            memory: "100Mi"
+        image: redis
+        ports:
+        - containerPort: 6379
+          name: client
+        - containerPort: 16379
+          name: gossip
+        command: ["/conf/update-node.sh", "redis-server", "/conf/redis.conf"]
         ports:
             - name: redis
               containerPort: 6379
@@ -52,20 +48,20 @@ spec:
               containerPort: 16379
               protocol: "TCP"
         volumeMounts:
-          - name: redis-conf
-            mountPath: "/etc"
-            readOnly: false
-          - name: "redis-volume"
-            mountPath: "/data"
-            readOnly: false
+        - name: conf
+          mountPath: /conf
+          readOnly: false
+        - name: data
+          mountPath: /data
+          readOnly: false
       volumes:
-      - name: redis-conf
+      - name: conf
         configMap:
           name: redis-cluster
           defaultMode: 0755
   volumeClaimTemplates:
   - metadata:
-      name: redis-volume
+      name: data
     spec:
       accessModes: [ "ReadWriteOnce" ]
       resources:
