@@ -75,4 +75,3 @@ spec:
   nfs:
     server: 192.168.99.101
     path: "/usr/local/k8s/redis/pv6"
-  ---
