@@ -4,8 +4,7 @@ FROM jenkins/jenkins:2.184
 USER root
 
 # A default admin user
-ENV ADMIN_USER=admin \
-    ADMIN_PASSWORD=admin
+ENV ADMIN_USER=admin ADMIN_PASSWORD=admin
 
 # Jenkins init scripts
 COPY security.groovy /usr/share/jenkins/ref/init.groovy.d/
@@ -19,22 +18,12 @@ RUN /usr/local/bin/install-plugins.sh $(cat /usr/share/jenkins/plugins.txt) && \
 
 ADD apache-maven-3.6.1-bin.tar.gz /var/jenkins_home/
 
-# Install Docker
-#RUN apt-get -qq update && \
-#    apt-get -qq -y install curl && \
-#    curl -sSL https://get.docker.com/ | sh
-
-# Install kubectl and helm
-#RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && \
-#    chmod +x ./kubectl && \
-#    mv ./kubectl /usr/local/bin/kubectl && \
-#    curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
-
 # Install kubectl and helm
 COPY kubectl .
-#RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.11.0/bin/linux/amd64/kubectl && \
-#    chmod +x ./kubectl && \
-RUN mv ./kubectl /usr/local/bin/kubectl
+COPY kube/config /root/.kube/
+RUN  chmod +x ./kubectl && \
+     mv ./kubectl /usr/local/bin/kubectl
+
 # helm    
-RUN curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
+# RUN curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
 

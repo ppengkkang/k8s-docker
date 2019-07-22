@@ -4,25 +4,24 @@
 yum -y install nfs-utils rpcbind
 
 ### 2. Create  /etc/exports with follwing configuration
-/usr/local/k8s/redis/pv1 *(rw,all_squash)
-/usr/local/k8s/redis/pv2 *(rw,all_squash)
-/usr/local/k8s/redis/pv3 *(rw,all_squash)
-/usr/local/k8s/redis/pv4 *(rw,all_squash)
-/usr/local/k8s/redis/pv5 *(rw,all_squash)
-/usr/local/k8s/redis/pv6 *(rw,all_squash)
+/export/pvs/pv0001 *(rw,all_squash)
+/export/pvs/pv0002 *(rw,all_squash)
+/export/pvs/pv0003 *(rw,all_squash)
+/export/pvs/pv0004 *(rw,all_squash)
+/export/pvs/pv0005 *(rw,all_squash)
+/export/pvs/pv0006 *(rw,all_squash)
+/export/pvs/pv0007 *(rw,all_squash)
+/export/pvs/pv0008 *(rw,all_squash)
+/export/pvs/pv0009 *(rw,all_squash)
+/export/pvs/pv0010 *(rw,all_squash)
 
 
 ### 3. chmod
-chmod 777 /usr/local/k8s/redis/pv*
+chmod 755 /export/pv*
 
 ### 4. Start
 systemctl start rpcbind
 systemctl start nfs
 
-### 5. Test
-In 172.26.126.11: mount -t nfs 172.26.126.26:/usr/local/k8s/redis/pv1 /mnt
-touch test
-
-In 172.26.126.26 check /usr/local/k8s/redis/pv1/test
 
 

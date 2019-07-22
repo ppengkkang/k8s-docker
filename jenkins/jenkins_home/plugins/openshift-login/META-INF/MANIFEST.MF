@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: gmontero
+Build-Jdk: 1.8.0_212
+Extension-Name: openshift-login
+Implementation-Title: openshift-login
+Implementation-Version: 1.0.19
+Group-Id: org.openshift.jenkins
+Short-Name: openshift-login
+Long-Name: OpenShift Login Plugin
+Url: https://wiki.jenkins-ci.org/display/JENKINS/OpenShift+Login+Plugin
+Plugin-Version: 1.0.19
+Hudson-Version: 1.642.2
+Jenkins-Version: 1.642.2
+Plugin-Dependencies: mailer:1.6,matrix-auth:1.1,credentials:2.1.9
+Plugin-Developers: Clayton Coleman:smarterclayton:smarterclayton@gmail
+ .com,Gabe Montero:gabemontero:gmontero@redhat.com
+

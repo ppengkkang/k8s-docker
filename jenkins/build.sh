@@ -1,1 +1,1 @@
-docker build -t 127.0.0.1/jenkins:k8s-alpine .
+docker build -t myjenkins:k8s-alpine .

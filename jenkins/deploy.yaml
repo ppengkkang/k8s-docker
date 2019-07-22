@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myjenkins-service
+  labels:
+    name: myjenkins-service
+  namespace: default
+spec:
+  selector:
+    app: myjenkins
+  ports:
+    - name: myjenkins
+      port: 8080
+      targetPort: 8080
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: myjenkins
+  namespace: default
+  labels:
+    app: myjenkins
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myjenkins
+  template:
+    metadata:
+      labels:
+        app: myjenkins
+    spec:
+      containers:
+      - name: myjenkins
+        image: myjenkins:k8s-alpine
+        ports:
+        - containerPort: 8080
+        imagePullPolicy: IfNotPresent
