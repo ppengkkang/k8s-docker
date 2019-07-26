@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mypage-jenkins-deployment
+  namespace: default
+  labels:
+    app: mypage-jenkins
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mypage-jenkins
+  template:
+    metadata:
+      labels:
+        app: mypage-jenkins
+    spec:
+      containers:
+      - name: mypage-jenkins
+        image: mypage-jenkins:v1.1
+        ports:
+        - containerPort: 8080
+        imagePullPolicy: IfNotPresent
+
+        
