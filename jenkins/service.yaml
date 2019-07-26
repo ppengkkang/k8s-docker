@@ -7,3 +7,5 @@ spec:
     app: mypage-jenkins
   ports:
     - port: 8080
+  selector:
+    app: mypage-jenkins
